@@ -1,0 +1,15 @@
+{
+    "name": "cheddam/silverstripe-flash-messages",
+    "description": "A simple module for sending flash messages in your SilverStripe app.",
+    "type": "silverstripe-module",
+    "require": {
+        "silverstripe/framework": "~3.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Garion Herman",
+            "email": "garion@silverstripe.com"
+        }
+    ]
+}
