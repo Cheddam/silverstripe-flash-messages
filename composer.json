@@ -1,9 +1,10 @@
 {
-    "name": "cheddam/silverstripe-flash-messages",
+    "name": "rentaswag/silverstripe-flash-messages",
     "description": "A simple module for sending flash messages in your SilverStripe app.",
     "type": "silverstripe-module",
     "require": {
-        "silverstripe/framework": "~3.2"
+        "php": ">=5.4.0",
+        "silverstripe/framework": "~3.2",
     },
     "license": "MIT",
     "authors": [

@@ -1,0 +1,3 @@
+Controller:
+  extensions:
+    - Cheddam\SilverStripeFlashMessages\ControllerExtension
