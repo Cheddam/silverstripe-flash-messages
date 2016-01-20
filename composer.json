@@ -12,5 +12,8 @@
             "name": "Garion Herman",
             "email": "garion@silverstripe.com"
         }
-    ]
+    ],
+    "extras": {
+        "installer-name": "flash-messages"
+    }
 }
