@@ -13,7 +13,7 @@
             "email": "garion@silverstripe.com"
         }
     ],
-    "extras": {
+    "extra": {
         "installer-name": "flash-messages"
     }
 }
