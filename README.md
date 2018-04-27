@@ -39,4 +39,5 @@ In templates:
 
 ## Caveats
 
-- Currently $FlashMessages can only be called once as it cleans up the messages before returning them. Currently looking for a better way to handle this.
+- Currently $FlashMessages can only be called once as it cleans up the messages before returning them. Currently looking
+ for a better way to handle this.
