@@ -15,19 +15,23 @@ class ControllerExtension extends Extension
      */
     public function flashMessage($message, $type = '')
     {
+        $session = $this->owner->getRequest()->getSession();
+
         // Get the existing flash message array (if it exists)
-        $messages = Session::get('flashmessages') ? json_decode(Session::get('flashmessages')) : [];
+        $messages = $session->get('flashmessages') ? json_decode($session->get('flashmessages')) : [];
 
         // Append the new message to the array
         $messages[] = ['Message' => $message, 'Type' => $type];
 
         // Update the flash message array
-        Session::set('flashmessages', json_encode($messages));
+        $session->set('flashmessages', json_encode($messages));
     }
 
     public function FlashMessages()
     {
-        $messages = Session::get('flashmessages') ? json_decode(Session::get('flashmessages'), true) : [];
+        $session = $this->owner->getRequest()->getSession();
+
+        $messages = $session->get('flashmessages') ? json_decode($session->get('flashmessages'), true) : [];
 
         // todo: make silverstripe not stupid
         $return = new ArrayList();
@@ -35,13 +39,15 @@ class ControllerExtension extends Extension
             $return->push(new ArrayData($message));
         }
 
-        Session::clear('flashmessages');
+        $session->clear('flashmessages');
 
         return $return;
     }
 
     public function FlashMessagesPresent()
     {
-        return Session::get('flashmessages') ? true : false;
+        $session = $this->owner->getRequest()->getSession();
+
+        return $session->get('flashmessages') ? true : false;
     }
 }
