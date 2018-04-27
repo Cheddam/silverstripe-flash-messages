@@ -1,9 +1,14 @@
 <?php
 namespace Cheddam\SilverStripeFlashMessages;
 
-use \ArrayList, \ArrayData;
-use \Extension;
-use \Session;
+
+
+
+use SilverStripe\Control\Session;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\View\ArrayData;
+use SilverStripe\Core\Extension;
+
 
 class ControllerExtension extends Extension
 {
