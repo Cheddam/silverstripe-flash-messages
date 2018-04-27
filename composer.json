@@ -12,8 +12,8 @@
     },
     "autoload": {
         "psr-4": {
-            "EdgarIndustries\\FlashMessages\\": "code/",
-            "EdgarIndustries\\FlashMessages\\Tests\\": "tests/"
+            "Cheddam\\SilverStripeFlashMessages\\": "code/",
+            "Cheddam\\SilverStripeFlashMessages\\Tests\\": "tests/"
         }
     },
     "license": "MIT",
