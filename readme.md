@@ -4,7 +4,7 @@ for flashing dem messages
 
 ## Usage
 
-`composer install rentaswag/silverstripe-flash-messages`
+`composer require rentaswag/silverstripe-flash-messages`
 
 In controller methods:
 
