@@ -1,5 +1,5 @@
 {
-    "name": "rentaswag/silverstripe-flash-messages",
+    "name": "cheddam/silverstripe-flash-messages",
     "description": "A simple module for sending flash messages in your SilverStripe app.",
     "type": "silverstripe-module",
     "require": {

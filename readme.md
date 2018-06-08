@@ -4,7 +4,7 @@ for flashing dem messages
 
 ## Usage
 
-`composer require rentaswag/silverstripe-flash-messages`
+`composer require cheddam/silverstripe-flash-messages`
 
 In controller methods:
 
@@ -15,7 +15,7 @@ In templates:
 ```php
 <% if $FlashMessagesPresent %>
 	<% loop $FlashMessages %>
-		<div class="message $Type">$Message</div>
+		<div class="message message--$Type">$Message</div>
 	<% end_loop %>
 <% end_if %>
 ```
