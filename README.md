@@ -2,6 +2,8 @@
 
 for flashing dem messages
 
+_For SilverStripe 3 compatibility, use v1.0.0._
+
 ## Usage
 
 `composer require cheddam/silverstripe-flash-messages`
@@ -22,4 +24,4 @@ In templates:
 
 ## Caveats
 
-- Currently $FlashMessages can only be called once as it cleans up the messages before returning them. Currently looking for a better way to handle this.
+- $FlashMessages can only be called once as it clears the messages from the session before returning them.
