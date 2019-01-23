@@ -1,46 +1,53 @@
 <?php
 namespace Cheddam\SilverStripeFlashMessages;
 
-use \ArrayList, \ArrayData;
-use \Extension;
-use \Session;
+use SilverStripe\Control\Session;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\View\ArrayData;
+use SilverStripe\Core\Extension;
 
 class ControllerExtension extends Extension
 {
-	/**
-	 * Stores a flash message to be displayed on the next page.
-	 * @param  string $message The message to display
-	 * @param  string $type    (Optional) A class (or classes) to apply to the message.
-	 */
-	public function flashMessage($message, $type = '')
-	{
-		// Get the existing flash message array (if it exists)
-		$messages = Session::get('flashmessages') ? json_decode(Session::get('flashmessages')) : [];
+    /**
+     * Stores a flash message to be displayed on the next page.
+     * @param  string $message The message to display
+     * @param  string $type    (Optional) A class (or classes) to apply to the message.
+     */
+    public function flashMessage($message, $type = '')
+    {
+        $session = $this->owner->getRequest()->getSession();
 
-		// Append the new message to the array
-		$messages[] = ['Message' => $message, 'Type' => $type];
+        // Get the existing flash message array (if it exists)
+        $messages = $session->get('flashmessages') ? json_decode($session->get('flashmessages')) : [];
 
-		// Update the flash message array
-		Session::set('flashmessages', json_encode($messages));
-	}
+        // Append the new message to the array
+        $messages[] = ['Message' => $message, 'Type' => $type];
 
-	public function FlashMessages()
-	{
-		$messages = Session::get('flashmessages') ? json_decode(Session::get('flashmessages'), true) : [];
+        // Update the flash message array
+        $session->set('flashmessages', json_encode($messages));
+    }
 
-		// todo: make silverstripe not stupid
-		$return = new ArrayList();
-		foreach ($messages as $message) {
-			$return->push(new ArrayData($message));
-		}
+    public function FlashMessages()
+    {
+        $session = $this->owner->getRequest()->getSession();
 
-		Session::clear('flashmessages');
+        $messages = $session->get('flashmessages') ? json_decode($session->get('flashmessages'), true) : [];
 
-		return $return;
-	}
+        // todo: make silverstripe not stupid
+        $return = new ArrayList();
+        foreach ($messages as $message) {
+            $return->push(new ArrayData($message));
+        }
 
-	public function FlashMessagesPresent()
-	{
-		return Session::get('flashmessages') ? true : false;
-	}
+        $session->clear('flashmessages');
+
+        return $return;
+    }
+
+    public function FlashMessagesPresent()
+    {
+        $session = $this->owner->getRequest()->getSession();
+
+        return $session->get('flashmessages') ? true : false;
+    }
 }
